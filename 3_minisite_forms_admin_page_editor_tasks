@@ -14,7 +14,7 @@ function getMenu($menu_content) {
 	$menu_content=unserialize($menu_content);
 }
 }
-getMenu ($menu_content);
+echo getMenu ($menu_content);
 if(isset($menu_content)) {
 	echo "<ul>";
 foreach ($menu_content as $item) {   
