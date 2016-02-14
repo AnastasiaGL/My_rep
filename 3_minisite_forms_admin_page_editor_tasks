@@ -1,0 +1,28 @@
+<?php
+	$men=array (
+ array ("url"=>"/?act=about", "title"=>"About"),
+  array ("url"=>"http:/?act=contact", "title"=>"Contacts"),
+  array ("url"=>"http:/?act=main", "title"=>"Main"),
+  array ("url"=>"http:/?act=products", "title"=>"Products"),
+);
+  
+$menuDB=serialize($men);
+file_put_contents("menu.dat", $menuDB);
+function getMenu($menu_content) {
+	if(is_readable("menu.dat")) {
+	$menu_content=file_get_contents("menu.dat");
+	$menu_content=unserialize($menu_content);
+}
+}
+getMenu ($menu_content);
+if(isset($menu_content)) {
+	echo "<ul>";
+foreach ($menu_content as $item) {   
+  echo "<li>";
+  echo "<a href={$item["url"]}>{$item["title"]}  </a>";
+  echo "</li>";
+}
+echo "</ul>";
+	
+}
+?>
